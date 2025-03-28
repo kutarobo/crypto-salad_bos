@@ -2,9 +2,8 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import type { Metadata } from "next";
 import { Roboto, Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "@/src/theme";
+import theme from "../../src/theme";
 import "./globals.css";
-import SideBar from "@/components/layout/SideBar";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -36,7 +35,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={roboto.variable}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <SideBar />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </AppRouterCacheProvider>
