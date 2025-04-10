@@ -1,9 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { css } from "@emotion/react";
 
+const sx = {
+  wrapper: css`
+    background-color: black;
+  `,
+};
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div className={styles.page} css={sx.wrapper}>
       <main className={styles.main}>
         <Image
           className={styles.logo}
