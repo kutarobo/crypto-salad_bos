@@ -52,7 +52,7 @@ interface IMenuItem {
 
 const MenuItem = ({ menu, children }: IMenuItem) => {
   return (
-    <li key={menu.key}>
+    <li>
       <a>{menu.name}</a>
       {children}
     </li>
@@ -65,11 +65,11 @@ const SideBar = () => {
       <ul>
         {tmpMenus.map((menu: TMenu) => {
           return (
-            <MenuItem menu={menu}>
+            <MenuItem key={menu.key} menu={menu}>
               {menu.subMenu && (
                 <ul>
                   {menu.subMenu.map((subMenu: TMenu) => {
-                    return <MenuItem menu={subMenu} />;
+                    return <MenuItem key={subMenu.key} menu={subMenu} />;
                   })}
                 </ul>
               )}
