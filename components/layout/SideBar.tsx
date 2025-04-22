@@ -4,11 +4,25 @@ import { css } from "@emotion/react";
 
 type TMenu = { key: string; name: string; link: string; subMenu?: TMenu[] };
 
+const SIDE_BAR_W = "270px";
+const SIDE_BAR_H = "90vh";
+
 const style = {
   sectionWrapper: css`
     height: 100vh;
     width: 300px;
     background-color: lightGray;
+  `,
+  sideBar: css`
+    position: fixed;
+    background-color: black;
+    width: var(${SIDE_BAR_W});
+    min-height: var(${SIDE_BAR_H});
+    margin-top: calc((100vh - var(${SIDE_BAR_H})) / 2);
+
+    ul ul {
+      display: none;
+    }
   `,
 };
 
@@ -62,7 +76,7 @@ const MenuItem = ({ menu, children }: IMenuItem) => {
 const SideBar = () => {
   return (
     <section css={style.sectionWrapper}>
-      <ul>
+      <ul css={{}}>
         {tmpMenus.map((menu: TMenu) => {
           return (
             <MenuItem key={menu.key} menu={menu}>
